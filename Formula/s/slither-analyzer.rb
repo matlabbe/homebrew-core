@@ -3,25 +3,24 @@ class SlitherAnalyzer < Formula
 
   desc "Solidity static analysis framework written in Python 3"
   homepage "https://github.com/crytic/slither"
-  url "https://files.pythonhosted.org/packages/a5/c4/d2aaf5a600a8ac176655fb7e2130a4879d766e17f51ee4694d022474ebdf/slither-analyzer-0.10.0.tar.gz"
-  sha256 "d01ad88a7fc9581f717859c66d01ef1658ba49505c60e89d5cf38ce6a7f4cdff"
+  url "https://files.pythonhosted.org/packages/1d/62/6963e21c75a783de0683fe9267c827a93dc5294dcc0001bf52bf3a9ff809/slither-analyzer-0.10.1.tar.gz"
+  sha256 "b99b81dfe949238e15e48d2ca9b3e756144a194f3a25c7d61c22712b2f99e9a6"
   license "AGPL-3.0-only"
   revision 1
   head "https://github.com/crytic/slither.git", branch: "master"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any,                 arm64_sonoma:   "37b1a2cc4a19741dc7c7747881dd287c7b0b828fdcf305bddbd290c62ef6c0f4"
-    sha256 cellar: :any,                 arm64_ventura:  "4be0ad28bebddc0035400ba05286ac581379fd99ff466e8d8316cea46f370542"
-    sha256 cellar: :any,                 arm64_monterey: "20a10ea3662ae3d554220e762cf135e91df13ae1b922d9606ad2e0d411294179"
-    sha256 cellar: :any,                 sonoma:         "c3c91a79ab81f0c121eb7bdb9631aeb67bae30e9d149c1152e01c634560afe5b"
-    sha256 cellar: :any,                 ventura:        "cf15e76f4856cfaea0a4ec09122368c9024f1776509769633315057fbfbe69a0"
-    sha256 cellar: :any,                 monterey:       "9b668d3f38cc0ee372fa6eb674e12b2ee9ec6b54925e5e8ff76ab996d25cb5e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa888c2539a7b7c83d06b60006e8867d1359bb75ec12fe4a93cf760d0c52ca49"
+    sha256 cellar: :any,                 arm64_sonoma:   "e6a1eec5ed8118668ca30d9aa4e94f8f9981526b638bb1856ab4da8fd424ae69"
+    sha256 cellar: :any,                 arm64_ventura:  "71ca0283e84bcd93dfa9d5265867e5f66f2682ac716471ed4ce687e6461948e4"
+    sha256 cellar: :any,                 arm64_monterey: "1358384a66b3d2ef4dc2b6f35cd5e4d8293340d08503b01125a846a5d614c567"
+    sha256 cellar: :any,                 sonoma:         "98eae80ceea5658e76f5ee2b3c090fa6fec16044c9ce0c5d65a3bd3dda5880f6"
+    sha256 cellar: :any,                 ventura:        "65cc8061fa088b560050d1eb21b19d00f23e3ea9a7ad54acdf4f8284dc840982"
+    sha256 cellar: :any,                 monterey:       "0ed830c806747ce82838888078e6a86cfb7abcd39ead36d4920b93a065e2524f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03a42fd57c27478139d99c51658de69677f27fb334c433647e57cb5d69b954be"
   end
 
   depends_on "rust" => :build # for rpds-py
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "aiohttp" do
@@ -65,8 +64,8 @@ class SlitherAnalyzer < Formula
   end
 
   resource "eth-abi" do
-    url "https://files.pythonhosted.org/packages/7b/98/3ed235fe27f30a7fa51dfcc5cdfdf5af1fbcef7906858ef59ff40e154bc0/eth_abi-5.0.0.tar.gz"
-    sha256 "89c4454d794d9ed92ad5cb2794698c5cee6b7b3ca6009187d0e282adc7f9b6dc"
+    url "https://files.pythonhosted.org/packages/b2/cb/370191e5445b3cbac2e6cb2023aa6ec232bbfa683d80909c884b2b0c2c62/eth_abi-5.0.1.tar.gz"
+    sha256 "e9425110c6120c585c9f0db2e8a33d76c4b886b148a65e68fc0035d3917a3b9c"
   end
 
   resource "eth-account" do
@@ -75,13 +74,13 @@ class SlitherAnalyzer < Formula
   end
 
   resource "eth-hash" do
-    url "https://files.pythonhosted.org/packages/b2/62/ee6a0e4716d6f714d35a52c65ff607c99588bb4af34de916d4ff835877dc/eth-hash-0.6.0.tar.gz"
-    sha256 "ae72889e60db6acbb3872c288cfa02ed157f4c27630fcd7f9c8442302c31e478"
+    url "https://files.pythonhosted.org/packages/c6/b6/57c89b91cf2dbb02b3019337f97bf346167d06cd23d3bde43c9fe52cae7e/eth-hash-0.7.0.tar.gz"
+    sha256 "bacdc705bfd85dadd055ecd35fd1b4f846b671add101427e089a4ca2e8db310a"
   end
 
   resource "eth-keyfile" do
-    url "https://files.pythonhosted.org/packages/99/39/c65fd9fd00071a93639c07e76a81f943be68f0e016a4a900262f6a33a628/eth-keyfile-0.7.0.tar.gz"
-    sha256 "6bdb8110c3a50439deb68a04c93c9d5ddd5402353bfae1bf4cfca1d6dff14fcf"
+    url "https://files.pythonhosted.org/packages/bd/94/730d6da0abddadbb3d0bb4d32b3cd068d9776c3737cdc70325a68f64e9f7/eth-keyfile-0.8.0.tar.gz"
+    sha256 "02e3c2e564c7403b92db3fef8ecae3d21123b15787daecd5b643a57369c530f9"
   end
 
   resource "eth-keys" do
@@ -100,8 +99,8 @@ class SlitherAnalyzer < Formula
   end
 
   resource "eth-utils" do
-    url "https://files.pythonhosted.org/packages/c5/a8/3ae71d48668700753012c92813f366f91551331ff2a05e9c98f92551d1a9/eth-utils-3.0.0.tar.gz"
-    sha256 "8721869568448349bceae63c277b75758d11e0dc190e7ef31e161b89619458f1"
+    url "https://files.pythonhosted.org/packages/93/78/0c6c891655021288461c9f622205888da9017cbaeeb811ebc384ba8b8d54/eth-utils-4.0.0.tar.gz"
+    sha256 "58f9c57900e0f430be728a5e976dc6ed51f493a61e8a4ff1f73c043832cd4f2f"
   end
 
   resource "frozenlist" do
@@ -205,8 +204,8 @@ class SlitherAnalyzer < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
-    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
+    url "https://files.pythonhosted.org/packages/16/3a/0d26ce356c7465a19c9ea8814b960f8a36c3b0d07c323176620b7b483e44/typing_extensions-4.10.0.tar.gz"
+    sha256 "b0abd7c89e8fb96f98db18d86106ff1d90ab692004eb746cf6eda2682f91b3cb"
   end
 
   resource "urllib3" do
@@ -242,12 +241,7 @@ class SlitherAnalyzer < Formula
   end
 
   def install
-    ENV["PIP_USE_PEP517"] = "1"
     virtualenv_install_with_resources
-
-    site_packages = Language::Python.site_packages("python3.12")
-    paths = %w[crytic-compile solc-select].map { |p| Formula[p].opt_libexec/site_packages }
-    (libexec/site_packages/"homebrew-deps.pth").write paths.join("\n")
   end
 
   test do

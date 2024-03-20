@@ -2,18 +2,18 @@ class SingBox < Formula
   desc "Universal proxy platform"
   homepage "https://sing-box.sagernet.org"
   # using `:homebrew_curl` to work around audit failure from TLS 1.3-only homepage
-  url "https://github.com/SagerNet/sing-box/archive/refs/tags/v1.8.5.tar.gz", using: :homebrew_curl
-  sha256 "0d5e6a7198c3a18491ac35807170715118df2c7b77fd02d16d7cfb5791e368ce"
+  url "https://github.com/SagerNet/sing-box/archive/refs/tags/v1.8.9.tar.gz", using: :homebrew_curl
+  sha256 "764c51bdf43af86e67b2657baf87bf67a2e1d8e42b0d39ee9ef7a9a414c658fc"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "88e79728eb8e81e97206ced71675f001686a52fd54a2161be797f2b24bb31148"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e5612e46d3e8c8563eb1776b252c001408aad4aed1ee2bb7fbe5d2012c4200a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aee969fcdb4f42f2486ede45de7f48d8b6d220a2a244fc9e2a0bd7a357c4c9ae"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3a0b84ab52cda97acfb4101ae0b4dce25f093b9501739caef1f4d6ac5a2b6b79"
-    sha256 cellar: :any_skip_relocation, ventura:        "b99075fa0b0e837968e504df4450ce6cf1b0e73d1a3b460702c8404df315be50"
-    sha256 cellar: :any_skip_relocation, monterey:       "4976cfe806de58f6703bbfc935cf8312f04cd7e6c8888ab0a6f7c9c4b3247ba4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5de82ebe8b89f3323f6320ab782f7242e0f3a8d682dc7ee904f062c9c836a702"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1984d8be5110f2b5d2e69c421b5cafb690bb04f27f578c4bf494dd8a58d9ab94"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "928c107668755a6c95a6607c17f431135260fffe7e1d8c8a893c207c60de670c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a93487bd024aa25c23c1d46fadc8ef0f14f9a64ba569a82af87966c23e3e3595"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c2bde0771655b6b716ded21c230398c11e1b9b45bb632df8f194f1b169489e98"
+    sha256 cellar: :any_skip_relocation, ventura:        "e01af3fcb8bead825874470daf7066c693da955bcdedabe9a733f611a3582528"
+    sha256 cellar: :any_skip_relocation, monterey:       "8ec45fa074b3761136487ebc88e88fb99f06f3c0ac635ea82fb2629eaba12abe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f530205116537309d06c52672bd3c3777a45f2a45c9b68e1c424adefdb046c54"
   end
 
   depends_on "go" => :build
@@ -21,7 +21,7 @@ class SingBox < Formula
   def install
     ldflags = "-s -w -X github.com/sagernet/sing-box/constant.Version=#{version} -buildid="
     tags = "with_gvisor,with_quic,with_wireguard,with_utls,with_reality_server,with_clash_api"
-    system "go", "build", "-tags", tags, *std_go_args(ldflags: ldflags), "./cmd/sing-box"
+    system "go", "build", "-tags", tags, *std_go_args(ldflags:), "./cmd/sing-box"
     generate_completions_from_executable(bin/"sing-box", "completion")
   end
 

@@ -19,8 +19,8 @@ class Datasette < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f558cf2fe176526d4bc8d4e31f142bba7b71bfeecd979304362a634e0036ccf9"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "aiofiles" do
@@ -145,10 +145,6 @@ class Datasette < Formula
 
   def install
     virtualenv_install_with_resources
-
-    site_packages = Language::Python.site_packages("python3.12")
-    paths = %w[uvicorn].map { |p| Formula[p].opt_libexec/site_packages }
-    (libexec/site_packages/"homebrew-deps.pth").write paths.join("\n")
 
     generate_completions_from_executable(bin/"datasette", shells: [:fish, :zsh], shell_parameter_format: :click)
   end

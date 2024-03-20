@@ -1,19 +1,19 @@
 class Greenmask < Formula
   desc "PostgreSQL dump and obfuscation tool"
   homepage "https://greenmask.io"
-  url "https://github.com/GreenmaskIO/greenmask/archive/refs/tags/v0.1.5.tar.gz"
-  sha256 "39699698cd1326fec8f075475f2aeda225f30e701149a5b366730856c7e39dea"
+  url "https://github.com/GreenmaskIO/greenmask/archive/refs/tags/v0.1.7.tar.gz"
+  sha256 "67cdcb8cd0c8442d28bdb7438cdf154c1b8a6feca731b5e2e9226655fe31658d"
   license "Apache-2.0"
   head "https://github.com/GreenmaskIO/greenmask.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0c6b35750b814568124e45bc324aa874cc745a891b6480e5a0d468f348d1b8e8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "47e18ac57d1cd27ad323e42b576d33b7c8d1b5579f13c236c0170616cdd36f08"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "58b62640ef7f7f7e4f2618191f701c695a85938639dbcb1d1ea842dc0ab3c642"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5cdb47525685b069295250bd6ad48d3514a1ea512d61f56ac442e7a25ae7d46e"
-    sha256 cellar: :any_skip_relocation, ventura:        "4ee74ceea5179be089ba182178d1cafd7f04208e9176fac204f0ee78c8c5b884"
-    sha256 cellar: :any_skip_relocation, monterey:       "250d4696ae64f5a85adf351fa45f9373805cb0db1bd11d9e88904596e945fd72"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e482969bf222069ef4e48dfb661dac9bf5cf8cf538d55eadc72f167676e1255e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6238248a1910eaae0ba5caa17fbc2b485d78daecd6e432b56587e1f312d01939"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c669ee957e42392afb372e15ab973265b4e54c8ec91ed1fdc44e3042333e038"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2359990a6d66324e2443a79a11bc4444a1568e3fd838cddd7470138ce41b13f6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f89d0df8fc4e15711e3458b47bd5cd89f8ecc2087c87533909166dfec936dd29"
+    sha256 cellar: :any_skip_relocation, ventura:        "6c5dd5e3a99196f87ca96244ac7ba1b6c032e5ea61d73aefd44959d3febded6a"
+    sha256 cellar: :any_skip_relocation, monterey:       "8171f77b52fb755d48a7e14ad0a3804753c94b6d43e70f0078a28dd8580a7455"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "169042f04f8acef1a16f8802a5eacf39b1bb23a3bc812485b261a43ada8c45f2"
   end
 
   depends_on "go" => :build
@@ -23,7 +23,7 @@ class Greenmask < Formula
       -s -w
       -X github.com/greenmaskio/greenmask/cmd/greenmask/cmd.Version=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/greenmask"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/greenmask"
 
     generate_completions_from_executable(bin/"greenmask", "completion")
   end

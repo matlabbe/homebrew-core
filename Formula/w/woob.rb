@@ -9,19 +9,20 @@ class Woob < Formula
   revision 3
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "11505ed119f02b7bf047e1ef83070a5fb6efdba5aeefa7e01ba84710bb5c5eac"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "53cd12c7252f5d2614d07e29b4e39c9a513a45e0c3ac986f97539bba47a33e13"
-    sha256 cellar: :any,                 arm64_monterey: "552fd19769db5d6a95fd31d8a2788b0ff9a2055bb690d058437115a6c4643d98"
-    sha256 cellar: :any_skip_relocation, sonoma:         "70701949c3c03d0a4091968687ff1d2436f81ef6721077fed09d00d265c9019d"
-    sha256 cellar: :any_skip_relocation, ventura:        "b0f558cf7b60188a5e7f616ba3eeef473b86e2aae657813a75575566754a03f4"
-    sha256 cellar: :any,                 monterey:       "365a5b57712d9d3cfbac4c10d4904aeb0391381c7d9db4b87cd6157d432c16c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f03bb691bb9d7fa081fae26c0700308591d82c01c48931a2a7890a30f438ce6"
+    rebuild 4
+    sha256 cellar: :any,                 arm64_sonoma:   "cbc164e604fd202448a53377aed61544d8574c6140bf0315ac2abd5cf0c2b0e2"
+    sha256 cellar: :any,                 arm64_ventura:  "b284a8f0a74069a48aec8eb7c048373a2c5bc941e82afa1067e4cf35eb25b4db"
+    sha256 cellar: :any,                 arm64_monterey: "05a3cb2c4b0217cbbbae718adcf12cecb78c3480c9ef08a28e26d2c5ee8d88c0"
+    sha256 cellar: :any,                 sonoma:         "54849d7fe58bf34ca3b7576fc4df33533dda3665203bebfaf5a68ca5dae47ec8"
+    sha256 cellar: :any,                 ventura:        "90bea165be29b94f35fa1fbab6d7f14b319c5d66e03a98fa2c303aa46ec969b7"
+    sha256 cellar: :any,                 monterey:       "f1a92064e8ad8bb6c627e3bb907e6ebda5d394d3e9ffc7796cbc47fc3ca7c8de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1df388f3a8034b3d8f0398296d9c32104f453f8b3b5d8887ade875f720db83cb"
   end
 
+  depends_on "certifi"
   depends_on "gnupg"
+  depends_on "libyaml"
   depends_on "pillow"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   uses_from_macos "libxml2", since: :ventura
@@ -117,20 +118,11 @@ class Woob < Formula
     sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
   end
 
-  def python3
-    "python3.12"
-  end
-
   def install
     virtualenv_install_with_resources
-
-    site_packages = Language::Python.site_packages(python3)
-    pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
-    (prefix/site_packages/"homebrew-woob.pth").write pth_contents
   end
 
   test do
     system bin/"woob", "config", "modules"
-    system python3, "-c", "import woob"
   end
 end

@@ -3,18 +3,18 @@ require "language/node"
 class Cdxgen < Formula
   desc "Creates CycloneDX Software Bill-of-Materials (SBOM) for projects"
   homepage "https://github.com/CycloneDX/cdxgen"
-  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-10.1.3.tgz"
-  sha256 "6004776f9abf196f9500d80700fc23f151488bbf731b492aedb97caccd0cda58"
+  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-10.2.4.tgz"
+  sha256 "554f5b75f491cb4a04edee74c8390e6c36adb5a1b0250748d1737c473917bf2f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f63e8b37ca4cc5f552c6ebfc69df6ccedd8dc1405f020e7724f139cb1e085f0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b546e71610fcd2faf08b774c8ff8b9c4bc6f1e3ca7c84a18fce3aa55b9067786"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "05e502b1f9c65eef6ce4dcad45cc5d37ad7b297d52a9f428ef7feaa3b7a59858"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e882b21a697b6ed078c964687b782dbce67fa74342260c74182a31ece37aacda"
-    sha256 cellar: :any_skip_relocation, ventura:        "d1678a1978ccf0a6b8660d30027601b22f388075e7272a8b8d56896951b776b3"
-    sha256 cellar: :any_skip_relocation, monterey:       "1188a212b4d64f4ef502087cd6dcc785af199513cb2b879854528b4d82686667"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25d655f6b3bbae2dca226083d1803de75e716f6f3be961d3f6efcb12b9b36c56"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7492cc7aecf767d97acdde4cb7ca742c8965adf95e362240043146ae4b10c559"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9662c6db8f5a972603b6ecd9afa99dbb696b702386a09ae01c2d638af985cbb9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aaefa94a2efe519c1e12ff181c592b2013e17b6bb5ddd092c7175320673edb6d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "565e747f19356a5b00bbbc1030d677bbf24e5f5e726ad7b9d5ecbb1d2d5594f8"
+    sha256 cellar: :any_skip_relocation, ventura:        "f59067ac562789e03f713ae023d4f3a8909d1e3d7642581c218ef8c2176c0dc7"
+    sha256 cellar: :any_skip_relocation, monterey:       "5f9f204e3f5d3156ab65f06ec3f0a4729e2be88030a75ce14ba9efc9064a0ba1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5e92686187ef4d3c5e7702583c9730a914c4e66e2ecc4339c135ddcc4a5019c"
   end
 
   depends_on "node"

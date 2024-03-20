@@ -3,23 +3,22 @@ class Dolphie < Formula
 
   desc "Feature-rich top tool for monitoring MySQL"
   homepage "https://github.com/charles-001/dolphie"
-  url "https://files.pythonhosted.org/packages/ab/37/61ae4b07e2107c70f6756279932d82a4c243b2c8ab21b680687deeffce56/dolphie-4.2.2.tar.gz"
-  sha256 "f8727d86e885cc51d66b7afef747b43ad30000f9d7b22d232de928a667ca4c3a"
+  url "https://files.pythonhosted.org/packages/a5/09/2a1e2dc038fa65db5ee078c0c60bdcb6e8227e52a307d0ba26a9cb792bb4/dolphie-4.3.4.tar.gz"
+  sha256 "26011fd6d1b2bf568fcb237855467241c5f2b217544d15488d7c55b7aa74be86"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9710bb91680c7e46b8b61ac2e13e61942d0d7cf3eb3fdcd0322e1afe77ee1750"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "81cdf7d30f3813b35c0d243c336d618827c6c7579758ff9d541c1b163f4dd362"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c5589a8b89bf0307dc35e16182ba590cc9d9460e7d044d73eaba84d8364ac14"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2c0f25d83c89f3bdda4076a07f6c562b974c6f2303ce921e83a33464a67ee269"
-    sha256 cellar: :any_skip_relocation, ventura:        "f4bf8ec7a2be6830baaf518e97b1ae195c97d7e61e6ee6870f5f0507c30d51b9"
-    sha256 cellar: :any_skip_relocation, monterey:       "3c1673485c6197fbe42d573fe0bc2a3b3be4e9a99710a041a02084bb20ea1faa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d80c16f7e0a645897c66989c459b7c87a693343a5eeffc74d7adc592f2e6457"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "31acd79cdf0e07d333095a0c2c34bf13f7ea50190c1d630bc1b7df09d359818f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "31acd79cdf0e07d333095a0c2c34bf13f7ea50190c1d630bc1b7df09d359818f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "31acd79cdf0e07d333095a0c2c34bf13f7ea50190c1d630bc1b7df09d359818f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "31acd79cdf0e07d333095a0c2c34bf13f7ea50190c1d630bc1b7df09d359818f"
+    sha256 cellar: :any_skip_relocation, ventura:        "31acd79cdf0e07d333095a0c2c34bf13f7ea50190c1d630bc1b7df09d359818f"
+    sha256 cellar: :any_skip_relocation, monterey:       "31acd79cdf0e07d333095a0c2c34bf13f7ea50190c1d630bc1b7df09d359818f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58f9d6f36bf514bca314dee1c378d611688af2559ced30293994009b3ea86eb5"
   end
 
-  depends_on "python-certifi"
-  depends_on "python-cryptography"
+  depends_on "certifi"
+  depends_on "cryptography"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
@@ -83,8 +82,8 @@ class Dolphie < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/a7/ec/4a7d80728bd429f7c0d4d51245287158a1516315cadbb146012439403a9d/rich-13.7.0.tar.gz"
-    sha256 "5cb5123b5cf9ee70584244246816e9114227e0b98ad9176eede6ad54bf5403fa"
+    url "https://files.pythonhosted.org/packages/b3/01/c954e134dc440ab5f96952fe52b4fdc64225530320a910473c1fe270d9aa/rich-13.7.1.tar.gz"
+    sha256 "9be308cb1fe2f1f57d67ce99e95af38a1e2bc71ad9813b0e247cf7ffbcc3a432"
   end
 
   resource "sqlparse" do
@@ -93,8 +92,8 @@ class Dolphie < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/8f/d3/b97d99dbcf86d4a1d8a51d5ab021e8cc5831703ea34abaeba30e354addce/textual-0.49.0.tar.gz"
-    sha256 "a66f981bde8f64c5cbb524d029946136d85602e82b595f4f5793f7bdc2e965b7"
+    url "https://files.pythonhosted.org/packages/bb/ce/b224ccc05260871da8df640e7cd8ca0a5e38721fddb6733650195402841e/textual-0.52.1.tar.gz"
+    sha256 "4232e5c2b423ed7c63baaeb6030355e14e1de1b9df096c9655b68a1e60e4de5f"
   end
 
   resource "textual-autocomplete" do
@@ -103,8 +102,8 @@ class Dolphie < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
-    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
+    url "https://files.pythonhosted.org/packages/16/3a/0d26ce356c7465a19c9ea8814b960f8a36c3b0d07c323176620b7b483e44/typing_extensions-4.10.0.tar.gz"
+    sha256 "b0abd7c89e8fb96f98db18d86106ff1d90ab692004eb746cf6eda2682f91b3cb"
   end
 
   resource "uc-micro-py" do

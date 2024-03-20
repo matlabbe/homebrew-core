@@ -1,9 +1,9 @@
 class Xrootd < Formula
   desc "High performance, scalable, fault-tolerant access to data"
   homepage "https://xrootd.slac.stanford.edu/"
-  url "https://github.com/xrootd/xrootd/releases/download/v5.6.7/xrootd-5.6.7.tar.gz"
-  mirror "https://xrootd.slac.stanford.edu/download/v5.6.7/xrootd-5.6.7.tar.gz"
-  sha256 "4089ce3a69fcf6566d320ef1f4a73a1d6332e6835b7566e17548569bdea78a8d"
+  url "https://github.com/xrootd/xrootd/releases/download/v5.6.9/xrootd-5.6.9.tar.gz"
+  mirror "https://xrootd.slac.stanford.edu/download/v5.6.9/xrootd-5.6.9.tar.gz"
+  sha256 "44196167fbcf030d113e3749dfdecab934c43ec15e38e77481e29aac191ca3a8"
   license "LGPL-3.0-or-later"
   head "https://github.com/xrootd/xrootd.git", branch: "master"
 
@@ -13,17 +13,16 @@ class Xrootd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1de3d9f86ec96ac76987707d7535b47eddf7f0d0fe304e2a30bf9fa111a5c719"
-    sha256 cellar: :any,                 arm64_ventura:  "09225bf0226a5f8fc611a360a241fa4c1ff4623bc69568a2ab896cf6f47fe14c"
-    sha256 cellar: :any,                 arm64_monterey: "e0f4d1a245c9c23ecd2475242e5681346fb2c00db28dae9378c7338a6a2b0f35"
-    sha256 cellar: :any,                 sonoma:         "52b6f3b22d1b3a79a2f79004f51b8c2ebe39b14145b8996bb13cee06cb59e676"
-    sha256 cellar: :any,                 ventura:        "a574ef24e01cd5a8b9b1b61525bb0240025a01d5a0841d188949c9f4784c4ec0"
-    sha256 cellar: :any,                 monterey:       "acc6b0cc65dec5a5ec2da315bab1dd76e23db458f5fd4010e393bf3d17178a36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b8dffd67b3f3d7d7ecd0364fa7faade20f7bc82a42252fdaaa4decc707db7e7"
+    sha256 cellar: :any,                 arm64_sonoma:   "749426498af0929373093f03d569d366af84235ef588a3f7dc567984bada6c10"
+    sha256 cellar: :any,                 arm64_ventura:  "f373ffe1a043ed8a9ccdbcee92c1a3bb9815c90b1ef8b76c1c7f7fe4a3112a66"
+    sha256 cellar: :any,                 arm64_monterey: "a0d28194a21fcf7095fb21f87c2084f1527328dba598d71076e38bd3b1e79126"
+    sha256 cellar: :any,                 sonoma:         "d839deee85ab77a90ca252790f9423b6e12951f48250035f0717af86c461754d"
+    sha256 cellar: :any,                 ventura:        "566b484124cd71de7dd352fa5266449ae96bb5a17256a642e04937780cd77bdf"
+    sha256 cellar: :any,                 monterey:       "67f03d5ba7558359b5f298430269e4e49cdcec6b2bad31bb9498272843892763"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ecd2c0d8085f6032a37341cb551d60db0d5c1ab47778cc6f083a7029ab46c62"
   end
 
   depends_on "cmake" => :build
-  depends_on "libcython" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.12" => [:build, :test]
   depends_on "davix"
@@ -40,16 +39,15 @@ class Xrootd < Formula
   end
 
   def install
-    args = std_cmake_args + %W[
+    args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DFORCE_ENABLED=ON
-      -DENABLE_CRYPTO=ON
       -DENABLE_FUSE=OFF
       -DENABLE_HTTP=ON
       -DENABLE_KRB5=ON
       -DENABLE_MACAROONS=OFF
       -DENABLE_PYTHON=ON
-      -DPYTHON_EXECUTABLE=#{which("python3.12")}
+      -DPython_EXECUTABLE=#{which("python3.12")}
       -DENABLE_READLINE=ON
       -DENABLE_SCITOKENS=OFF
       -DENABLE_TESTS=OFF
@@ -61,7 +59,7 @@ class Xrootd < Formula
       -DXRDCL_ONLY=OFF
     ]
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

@@ -2,8 +2,8 @@ class K9s < Formula
   desc "Kubernetes CLI To Manage Your Clusters In Style!"
   homepage "https://k9scli.io/"
   url "https://github.com/derailed/k9s.git",
-      tag:      "v0.31.9",
-      revision: "f2f4077b592dcbb4162cbfe07bd99546d47d9955"
+      tag:      "v0.32.3",
+      revision: "00213115bee9144cbab452ab152c911e431624e6"
   license "Apache-2.0"
   head "https://github.com/derailed/k9s.git", branch: "master"
 
@@ -13,13 +13,13 @@ class K9s < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1e454f07e37c92b5618f97deb1ea2fcd1c9c9339641b58a85560c3b34336ad64"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4001d9ba9a3088dad323d318236180e521be97490af574c8073c27b8f2cb3df"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5efc8b847b8469fcb9d70464a2dc17490f4ab50156c8d5f598949a34cad5ce08"
-    sha256 cellar: :any_skip_relocation, sonoma:         "faf398a2a654cddc640536e503dea84b9500eb3b2cd445586718d6991517d60d"
-    sha256 cellar: :any_skip_relocation, ventura:        "f4528a68e5d421f34f9081c1d4417577b9c6caeae170f9c8f99cb55bf5c70f8f"
-    sha256 cellar: :any_skip_relocation, monterey:       "d16052f484b8c087c00937bad0d268365e0ca8bf8f4f0e116bff8ed645f6df3e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fde7b9ea4b5cff262bcc4d51679349f5f5cb81190b754dfa84fdec2a69605b95"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "51bc2d04e3f85c41512c1008c1f4856194a1aa51271a5c8329d4c7309c4c60b7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4d3d2f22bead80e2f9890a6a05424e1e53ec1cc28bebea6f91467cc596ae951"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e270e546e5527fa7db9b0a95df139bad4503224607e2d1075a4353d099196f08"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b57ab1ad659b3766d1d48701fa3bf0cf0f2c9c441c42219280a0f53f1c1739ef"
+    sha256 cellar: :any_skip_relocation, ventura:        "f55b96fcf75059fec85f6edee47e4b92615f3db5e029c12f86191b571d760f5b"
+    sha256 cellar: :any_skip_relocation, monterey:       "27063d0e246e0fbfbaeb50b43f53d7827f67630d67f0194e4f420242490a8255"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e0bfd1549ac8a6e9e732cd477deadec556e7041248f9d00b1523aa92fd3d571"
   end
 
   depends_on "go" => :build
@@ -30,7 +30,7 @@ class K9s < Formula
       -X github.com/derailed/k9s/cmd.version=#{version}
       -X github.com/derailed/k9s/cmd.commit=#{Utils.git_head}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"k9s", "completion")
   end

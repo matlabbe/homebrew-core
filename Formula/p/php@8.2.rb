@@ -2,9 +2,9 @@ class PhpAT82 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.2.16.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.2.16.tar.xz"
-  sha256 "28cdc995b7d5421711c7044294885fcde4390c9f67504a994b4cf9bc1b5cc593"
+  url "https://www.php.net/distributions/php-8.2.17.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.2.17.tar.xz"
+  sha256 "1cc4ef733ba58f6557db648012471f1916e5bac316303aa165535bedab08ee35"
   license "PHP-3.01"
 
   livecheck do
@@ -13,13 +13,13 @@ class PhpAT82 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "8159f3c0e9bf18c32c75f25e8e8eaaca0e2f593c315b09e165eb1c5a639ba995"
-    sha256 arm64_ventura:  "ad4ba86272f8c8a565188f7d4053f45884023b61f27d5b1e0ba9e76af4977821"
-    sha256 arm64_monterey: "896059a87a6ec2fb4bdf5af39d54b2f608c5d6edb75cdaabc3b497ae9ee8fd2a"
-    sha256 sonoma:         "7886619a77067eab766fbccbcd427fce78e69915e25f7ce3df88ccf3a38949f5"
-    sha256 ventura:        "a9fcf7a7e052700aadae16367b8151038c3b72a5439a06e7ef4da5abe16aaf2a"
-    sha256 monterey:       "f2123162cdbd9212f928fa4a1181fdbacfc339688b11fc850e5b88d5ccfcf729"
-    sha256 x86_64_linux:   "ec065938bc425ca3a99626deea1bbde61d8e009b26677c8d90f61ad85f5aa84d"
+    sha256 arm64_sonoma:   "0d74b56ab5da9329885555ba16fac029d6c5ad5e8cad80f1366bcdce53540061"
+    sha256 arm64_ventura:  "7ea0a7785bcb146375b8d676908d02d32569038feac349850b58b0c954f6c3e2"
+    sha256 arm64_monterey: "216d3de5f8cf71bfeb598ab23bacd678b618998cd0e822c0b12c64bbdb3ccf12"
+    sha256 sonoma:         "744ef81d5aadf12cccb612af2655cdc5ae17829617ad544e0f5daefa6c57d44b"
+    sha256 ventura:        "270789378b34403f9c4478d09e9292b4c840d50e0e786bf18072c8b6790612f3"
+    sha256 monterey:       "fe865bce045c0d70baec14a891ca499266d0becfd8f1721aef0c9aef2c86a60e"
+    sha256 x86_64_linux:   "e3d3c3ede8f4795bb11a52b7fc1ec58b38c36c98fcf552e2e4830a1b430a15a7"
   end
 
   keg_only :versioned_formula
@@ -62,8 +62,6 @@ class PhpAT82 < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "imap-uw"
-
     # PHP build system incorrectly links system libraries
     # see https://github.com/php/php-src/issues/10680
     patch :DATA
@@ -193,8 +191,6 @@ class PhpAT82 < Formula
 
     if OS.mac?
       args << "--enable-dtrace"
-      args << "--with-imap=#{Formula["imap-uw"].opt_prefix}"
-      args << "--with-imap-ssl=#{Formula["openssl@3"].opt_prefix}"
       args << "--with-ldap-sasl"
       args << "--with-os-sdkpath=#{MacOS.sdk_path_if_needed}"
     else

@@ -1,23 +1,30 @@
 class Flowpipe < Formula
   desc "Cloud scripting engine"
   homepage "https://flowpipe.io"
-  url "https://github.com/turbot/flowpipe/archive/refs/tags/v0.2.3.tar.gz"
-  sha256 "e61bc0902f44e8369d9c89dfbe0287396714f8def857663833a0288805004d8b"
+  url "https://github.com/turbot/flowpipe/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "9f0caca307fbaa929eb3f5eb5e5af2f1399625c4418070e2d0fb71f38d275d9c"
   license "AGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "458560e1f99c0be4084c3b6ce86798670793d57d680fdb10f844956a75182838"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4931ff920f63af53b457df062501ec383276a3ca6e37112366e8af7f1d91b720"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b14c9917c80cdcd0772427846785b128e6f699ddf73967b8a62dd16ca3f41313"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1adeccb93e16506df17fc52eb30e51117466de92565b2603f8a524050c3a09d5"
-    sha256 cellar: :any_skip_relocation, ventura:        "800f41a550b75520646988d66baa374e547943464249510fd4a666a5ef770599"
-    sha256 cellar: :any_skip_relocation, monterey:       "61450c867f949acf3754b9aa63cb4122a89ff653648a1732e5627e126437dbaa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bfde3fd68642f5f243a853c5fdbea3844db1fa7d55176c573b83b80b7c0641f3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7af828df4fe17ee03673249ee248be1df80e10697ec0217dd8416aef0ed32bbe"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c3569babe8ca1378053425093ab00bf9a46618c83f80bb62e294daa2e438e9e2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "88ec2e0f95544b6108c9d9f80cb43497c97282e7af24b140282f8521c9d11c51"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4abc59f9abdaeb26dfacfeb3f3b3f28bb90e585c536ca23c5867240d0dc9caaa"
+    sha256 cellar: :any_skip_relocation, ventura:        "b5ba33e3534942ac0f9d4c079e79b2a3ab91f1aa71b99eccfdf95c21d128a49c"
+    sha256 cellar: :any_skip_relocation, monterey:       "726dc91548dc372b6eb62364633f10a4de898f67fba969d4197d984922cf8bbe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e8387aa5cc46f9a17ba25d42e0ab7081f7c34c4fbadad1b780ef22ae3f3c215"
   end
 
   depends_on "go" => :build
+  depends_on "node" => :build
+  depends_on "yarn" => :build
 
   def install
+    cd "ui/form" do
+      system "yarn", "install"
+      system "yarn", "build"
+    end
+
     ldflags = %W[
       -s -w
       -X main.version=#{version}
@@ -25,7 +32,7 @@ class Flowpipe < Formula
       -X version.commit=#{tap.user}
       -X version.builtBy=#{tap.user}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do

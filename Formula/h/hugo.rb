@@ -2,19 +2,19 @@ class Hugo < Formula
   desc "Configurable static site generator"
   homepage "https://gohugo.io/"
   url "https://github.com/gohugoio/hugo.git",
-      tag:      "v0.123.0",
-      revision: "3c8a4713908e48e6523f058ca126710397aa4ed5"
+      tag:      "v0.124.0",
+      revision: "629f84e8edfb0b1b743c3942cd039da1d99812b0"
   license "Apache-2.0"
   head "https://github.com/gohugoio/hugo.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6b5311b3c8d46bf9dcfa134d7925187fde7b70e0a8a9c639d82fdf112b6b4191"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b72b455ef75bb7acdf2e884bc4202e1a6451b479c941fd0c3cae5b4529b9b8eb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8c997e9d1db04e48e9cc15daecf1754e308ed621bc8979c75d0baf404692c9e7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "34deceac0ab3a95cbd72e66ee648f81211b834f31cd93935a1826b9687876db6"
-    sha256 cellar: :any_skip_relocation, ventura:        "11aa0ad61de25baa1090d2ea6d8619b8855e62baf972374c89488a17983a3d40"
-    sha256 cellar: :any_skip_relocation, monterey:       "6aa89c3a010afae594cce88ad0f081d5cd73389e6d198dedc1c86cc22a439351"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83addf55e3c740bf1984726c4b5965b28a63c2c15429b3f38163797645362ece"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "74aaaee0f43407ae00c469ec8d7c36e31dfc481cd31926dbaed21a094997536b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b738b572ac9625358fb1ee232990dbe00183daddaffef3756f08bb6bb540ddbf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4eba8aafd29b643a6e0754046756f8d34a782eac8b321d21d9629373b954ef84"
+    sha256 cellar: :any_skip_relocation, sonoma:         "918f6c91206de56f3c8daf83eef198883733c0b974e96dbcd107ae1e70644fd2"
+    sha256 cellar: :any_skip_relocation, ventura:        "79b7063a58f7914e83331d4311a16987ed0986852035b55a2c39bf07db2e4580"
+    sha256 cellar: :any_skip_relocation, monterey:       "a62aa42718d41147a12aae0fde9d825ec66c6bc8dfd6cf23f152e6c06a766c50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6119fd2c8a03f31e2d332f91051d3a7c37660fc1bdccee0c73db0fddc1dfbd4"
   end
 
   depends_on "go" => :build
@@ -26,7 +26,7 @@ class Hugo < Formula
       -X github.com/gohugoio/hugo/common/hugo.buildDate=#{time.iso8601}
       -X github.com/gohugoio/hugo/common/hugo.vendorInfo=brew
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "-tags", "extended"
+    system "go", "build", *std_go_args(ldflags:), "-tags", "extended"
 
     generate_completions_from_executable(bin/"hugo", "completion")
     system bin/"hugo", "gen", "man", "--dir", man1

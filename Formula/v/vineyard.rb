@@ -3,18 +3,18 @@ class Vineyard < Formula
 
   desc "In-memory immutable data manager. (Project under CNCF)"
   homepage "https://v6d.io"
-  url "https://github.com/v6d-io/v6d/releases/download/v0.21.0/v6d-0.21.0.tar.gz"
-  sha256 "61a33020241b81981c3c07a354bd04e9c9031f296dd94242dca73ab296b7d864"
+  url "https://github.com/v6d-io/v6d/releases/download/v0.21.5/v6d-0.21.5.tar.gz"
+  sha256 "c434f61e71fb5e414add093b302375f27084dc03800e026019199db984183036"
   license "Apache-2.0"
 
   bottle do
-    sha256                               arm64_sonoma:   "80d57e721936b18144f1e1cb249b6c93d7a52a15c6041e233e687fc1a5b76e28"
-    sha256                               arm64_ventura:  "22d1b8e90c8610bfc1e60a51cb1632cbec0a0c37eaae105b3491b4aee79318bf"
-    sha256                               arm64_monterey: "4854f38e3547f761a2aa8502771f70a95efdb5cc7292176a19d48f633b00ef50"
-    sha256                               sonoma:         "2482098d573d54561bca658085a66530ee30dbeb0369e6a0d0bc1c490a9a965a"
-    sha256                               ventura:        "f94a290758b5ce9b855523f6e93718ba44c1c08b37538efdf8e94ba44cf5ef05"
-    sha256                               monterey:       "7affcff8bf6ec694ed773a35f665d465fd6168ec0ad6d8c64054aaddec17da64"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "586c81d8126e6acdbe84fa466cedb4dfb3687a167151c48c5d69cb3a0d466a5c"
+    sha256                               arm64_sonoma:   "d37ee947097930934cd340ec3f2884e4f093d52d76bb92012f42d373c7ca1ac5"
+    sha256                               arm64_ventura:  "e21bc5b4f2b3f6a6f42aa123a1ce46cb7403e6b9d71329d33e7a260e9552575e"
+    sha256                               arm64_monterey: "63d9efb14fa93a49141c29012aa813a3c06066678a3a766a6165048623ee0197"
+    sha256                               sonoma:         "45bc7bcb2ae62ab6e7ebe18204957b6a6383a6475e3c68e7eea429d04e481cea"
+    sha256                               ventura:        "592e28f0dc722c0e61f4ae5bfe94fb85bcd48101fce882525d08416261bff19d"
+    sha256                               monterey:       "9ca229653b317c3a6c06050b6a7695494ad39bfabc2f5b8086ffb789e1f9c486"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d02ab1f086e41c2ba7e432ca08231d8dfd02e38b22d804f6b36101b444b121c"
   end
 
   depends_on "cmake" => [:build, :test]

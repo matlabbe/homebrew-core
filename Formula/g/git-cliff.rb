@@ -1,18 +1,18 @@
 class GitCliff < Formula
   desc "Highly customizable changelog generator"
   homepage "https://github.com/orhun/git-cliff"
-  url "https://github.com/orhun/git-cliff/archive/refs/tags/v2.0.2.tar.gz"
-  sha256 "ab29fbda532bec2a344d99f39b7998063c576efee92a1bee083c6fba5f52e4ef"
+  url "https://github.com/orhun/git-cliff/archive/refs/tags/v2.1.2.tar.gz"
+  sha256 "1c321b180b071ccfa8986931576fc02ca4dbc75dff035e4c663c2cfb8ecd4683"
   license all_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7f94f82704e925bc81e0dbfd23e35817bc6ee246c2ae2e66fc4855f756951367"
-    sha256 cellar: :any,                 arm64_ventura:  "d9b53988f947087e73b870bf36a748047f688ddc19cfa83ca282b73a5300d8fb"
-    sha256 cellar: :any,                 arm64_monterey: "3c0663977e411136e2873708ce3a0d8c29536299dde578f441e2588ef048f786"
-    sha256 cellar: :any,                 sonoma:         "bbf63149a78b25652d0d52eaa387249c433698b7fab8b2cdd22edcc7b05f1195"
-    sha256 cellar: :any,                 ventura:        "490f5d6bc63870535c0bd638613ab0b6847053fd2872054fda0be96fb005b0fc"
-    sha256 cellar: :any,                 monterey:       "4e29c6c850b0cd584fdade92b3b1f6c494c2f9c47c44f7eca55f67714160c345"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89fa2b57b489affe2d6620f6652e86868f84f3fa18b530c5d0b0deb6777fbcf7"
+    sha256 cellar: :any,                 arm64_sonoma:   "61ac163767c260e569433e87a1e30b6230df93e41f0bde2cca46f6a59ffb522c"
+    sha256 cellar: :any,                 arm64_ventura:  "c65a52cbbdd2dfdb4862796a2e30a26139732d27c5c690a2692b55e5997bdebc"
+    sha256 cellar: :any,                 arm64_monterey: "43c61feb45cff2f3079a4ca6b16dd405dfd32bb5dbbd965898c03ab92d0cb4c3"
+    sha256 cellar: :any,                 sonoma:         "37ccac8bfc63dd7de1611e62ff31e24d9e256fc8d97f2abbbe58937187807454"
+    sha256 cellar: :any,                 ventura:        "0e809293b5e935c67f4fbb633f4a389963121a669af8ff3e591ed38ec1e7d46b"
+    sha256 cellar: :any,                 monterey:       "ef43913de1b458bfbb8951390858b95a633149ee2320a48267a4a2795abc1719"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e07083289c3625e9343f121b4626c5d16e1454a426e2f19026f04fabaee16e2"
   end
 
   depends_on "pkg-config" => :build

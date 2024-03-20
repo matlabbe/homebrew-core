@@ -5,18 +5,18 @@ class CloudflareWrangler2 < Formula
 
   desc "CLI tool for Cloudflare Workers"
   homepage "https://github.com/cloudflare/workers-sdk"
-  url "https://registry.npmjs.org/wrangler/-/wrangler-3.28.4.tgz"
-  sha256 "379c769ad98d9d06ad91ab1e0c7818d2d81c7d62fc6494d0a0a094d2002a4ada"
+  url "https://registry.npmjs.org/wrangler/-/wrangler-3.35.0.tgz"
+  sha256 "c075b8b4e4f15795c386fc04eb90b314852c0640b32678dba2353df535f469d7"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b92133e7d35913681d957e412b2bf857750e7bd7caa6e2d47f301955549132ee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b92133e7d35913681d957e412b2bf857750e7bd7caa6e2d47f301955549132ee"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b92133e7d35913681d957e412b2bf857750e7bd7caa6e2d47f301955549132ee"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f93c1ed10eac8cb91daf26e2d72caf2dda7efedc244df2f79ea5b3867cb5124b"
-    sha256 cellar: :any_skip_relocation, ventura:        "f93c1ed10eac8cb91daf26e2d72caf2dda7efedc244df2f79ea5b3867cb5124b"
-    sha256 cellar: :any_skip_relocation, monterey:       "f93c1ed10eac8cb91daf26e2d72caf2dda7efedc244df2f79ea5b3867cb5124b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69366ad356ddd2aee2a7829d55b6c6867364d5dac5b551150ad1a058016970fb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "245b76b9390d53c28c46ab1e886e5ec4bec32b2a3cc20c6397238d2879345f28"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "245b76b9390d53c28c46ab1e886e5ec4bec32b2a3cc20c6397238d2879345f28"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "245b76b9390d53c28c46ab1e886e5ec4bec32b2a3cc20c6397238d2879345f28"
+    sha256 cellar: :any_skip_relocation, sonoma:         "28f32b2accd744cf1b850506042bd96b332988fc944325ac799e6e382c426796"
+    sha256 cellar: :any_skip_relocation, ventura:        "28f32b2accd744cf1b850506042bd96b332988fc944325ac799e6e382c426796"
+    sha256 cellar: :any_skip_relocation, monterey:       "28f32b2accd744cf1b850506042bd96b332988fc944325ac799e6e382c426796"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36ce2425e005c46d2b67b90bcca73bbf802086cd97705db2d689b776c4429833"
   end
 
   depends_on "node"
@@ -27,9 +27,6 @@ class CloudflareWrangler2 < Formula
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     rewrite_shebang detected_node_shebang, *Dir["#{libexec}/lib/node_modules/**/*"]
     bin.install_symlink Dir["#{libexec}/bin/wrangler*"]
-
-    # Replace universal binaries with their native slices
-    deuniversalize_machos libexec/"lib/node_modules/wrangler/node_modules/fsevents/fsevents.node"
   end
 
   test do

@@ -2,11 +2,10 @@ class Agda < Formula
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
   license "BSD-3-Clause"
-  revision 3
 
   stable do
-    url "https://hackage.haskell.org/package/Agda-2.6.4.1/Agda-2.6.4.1.tar.gz"
-    sha256 "23248a9b3c50c81ea4751518a66f2a6144617b6a5a9202686b54e33bc9cbd080"
+    url "https://hackage.haskell.org/package/Agda/Agda-2.6.4.3.tar.gz"
+    sha256 "74edc96ec57d43bc148b329c02f6b06c3c3c16e8e40802e735570b1424df03a2"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.0.tar.gz"
@@ -14,8 +13,8 @@ class Agda < Formula
     end
 
     resource "cubical" do
-      url "https://github.com/agda/cubical/archive/refs/tags/v0.6.tar.gz"
-      sha256 "10b78aec56c4dfa24a340852153e305306e6a569c49e75d1ba7edbaaa6bba8e3"
+      url "https://github.com/agda/cubical/archive/refs/tags/v0.7.tar.gz"
+      sha256 "25a0d1a0a01ba81888a74dfe864883547dbc1b06fa89ac842db13796b7389641"
     end
 
     resource "categories" do
@@ -30,13 +29,13 @@ class Agda < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "b147e908bfed75f2feaac939820186790f2f2d57d5e5e025579e6c466c910fda"
-    sha256 arm64_ventura:  "552bd32ee1afe760253bc18431a93588617e82ac92cd673023fdd360a29b1f17"
-    sha256 arm64_monterey: "4b89efee0415fb0ad6ab7d4712088abf8143266f17ba8cf3e35ca893a3a221b6"
-    sha256 sonoma:         "b22dec07b7bc473e3bfe0bfcf0284ce88e731e4db06b3fdf6ef6cee5894966ea"
-    sha256 ventura:        "9b3fd6602afe23470f9f655b6e410fd0d63dccd5bd4081acddb70f30f6757c57"
-    sha256 monterey:       "ecd8bb5986e56385d81f8fbe06ddb487f736bc0eaf9753b81e96b3ad8c3ef300"
-    sha256 x86_64_linux:   "dc51a274435bbab8f8494a8bda9fd8795a4acb4d6949a671b939483805614509"
+    sha256 arm64_sonoma:   "813432ea01dc8df99f673bee3d2fedcc8464389d4d2103c869edff22d541077b"
+    sha256 arm64_ventura:  "1912a6465375acb0a90289c2602ec42f48953a51c2417e71e36e6e50bd99e285"
+    sha256 arm64_monterey: "db158ba0f428a024c378f5745098512d367846ee0743d58e1e8ef705a2ea4cd0"
+    sha256 sonoma:         "41a85d6793aae7cfd06676d593bacab15f38136ae7073ccbc85cc26c032d0248"
+    sha256 ventura:        "9265cb8532501a9c2b26d79284b4a8aebeede7742ec60fcbbde866d8613fff0c"
+    sha256 monterey:       "2e1f341d01d10235c2811b0d67b552f1db5dbfaba45b999d3bb2a21fc041f855"
+    sha256 x86_64_linux:   "4007f165143d5ff02b4eec59ae9604e7605f959831942bffe86ff79706546977"
   end
 
   head do

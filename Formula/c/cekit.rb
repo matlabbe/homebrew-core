@@ -3,21 +3,21 @@ class Cekit < Formula
 
   desc "Container Evolution Kit"
   homepage "https://cekit.io"
-  url "https://files.pythonhosted.org/packages/c4/cc/a948fb7fc87bb974f55b37da024734166d4981a4f43958f1efc84d2b1e3d/cekit-4.10.0.tar.gz"
-  sha256 "83909f20463073aeb2d5f56295b7446c39ea4605fe8640ccfb521c618c5663e6"
+  url "https://files.pythonhosted.org/packages/2b/e8/f6f756156e26ee85221306123f60b2f1162a0d988a0e59f195d0631ed21f/cekit-4.11.0.tar.gz"
+  sha256 "5dc7ce15f903c2de20b119a18086c042a28ed0c72ef7f1d5956fa20cef2cfc32"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "912ecf6e74b2d0b6036e5e237bcd13dd2913052ff5788c606f6ebe154db63edd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b8aad5debf09a284b34700848feadb38c2e01c2d84fb6eaf563343268077b1c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f6c05921cb5927d60b4c21bfdd65c6aef775947e2edad6f649d1cbb4d2bef0dd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "dc41427fe81fdfbe10d1d3094bd469cb96c6d287db9af8c38bdcf1c8654f030c"
-    sha256 cellar: :any_skip_relocation, ventura:        "c18c791dd244a5347fb17ae1cfb60693cd97e0e97d8edcd5f92a04d5f75d4508"
-    sha256 cellar: :any_skip_relocation, monterey:       "3ae83110b13fac6b271e93bba7124e53622019924d01fffff2a430afa53fe5ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1953c1205a6b3ff72285b3d7899973a7d8c96db7d33cc6530c2928c9b73ae882"
+    sha256 cellar: :any,                 arm64_sonoma:   "bded464bf731194819a08509a29533a9842a1e442f1edbc2cfa3bca49d6e9192"
+    sha256 cellar: :any,                 arm64_ventura:  "eabe5f30826ff2709e40c9c0b366075e3ec87ed97a4ff306ee4a3508730ada8b"
+    sha256 cellar: :any,                 arm64_monterey: "053a66475fbfdf1e1de7bf5bd5da1c71c3876f585d2de6c5a82102964e6c9e7a"
+    sha256 cellar: :any,                 sonoma:         "3ef58b8154ee270521c4bb1cf45bdc99303c508e265adfc854cbd4dc20ce030f"
+    sha256 cellar: :any,                 ventura:        "c45cfaae966ca4ecfb93680f18e9a43bee8c611b43dc718f20960b8102bc7f93"
+    sha256 cellar: :any,                 monterey:       "aa4f335a5e63d7da8e2f64bfeb9bbf083c6a159faf0b8593a5aa4f822929e09c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3ba17894609c5da36c7f88adbcdde0f519dd64517a0c851c4fd8e3e09935adb"
   end
 
-  depends_on "python-setuptools" => :build
+  depends_on "libyaml"
   depends_on "python@3.12"
 
   resource "click" do
@@ -45,11 +45,6 @@ class Cekit < Formula
     sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
   end
 
-  resource "odcs" do
-    url "https://files.pythonhosted.org/packages/2c/d8/f5cad90fc6db4a0a26bf072a504a6badf58e411eb568952d7faf864f0bc2/odcs-0.8.0.tar.gz"
-    sha256 "2910f002acc52f851c761798bb4448daaa0ced85b80a448891ac171a0b016c8a"
-  end
-
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
     sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
@@ -61,8 +56,8 @@ class Cekit < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
-    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
+    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
   resource "pyyaml" do
@@ -71,8 +66,8 @@ class Cekit < Formula
   end
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/82/43/fa976e03a4a9ae406904489119cd7dd4509752ca692b2e0a19491ca1782c/ruamel.yaml-0.18.5.tar.gz"
-    sha256 "61917e3a35a569c1133a8f772e1226961bf5a1198bea7e23f06a0841dea1ab0e"
+    url "https://files.pythonhosted.org/packages/29/81/4dfc17eb6ebb1aac314a3eb863c1325b907863a1b8b1382cdffcb6ac0ed9/ruamel.yaml-0.18.6.tar.gz"
+    sha256 "8b27e6a217e786c6fbe5634d8f3f11bc63e0f80f6a5890f28863d9c45aac311b"
   end
 
   resource "ruamel-yaml-clib" do

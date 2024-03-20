@@ -3,23 +3,22 @@ class Apprise < Formula
 
   desc "Send notifications from the command-line to popular notification services"
   homepage "https://pypi.org/project/apprise/"
-  url "https://files.pythonhosted.org/packages/aa/99/f8e96a92f6385e6a5b38f454743dfa8a3610a9a0b4272df066c9aca97d72/apprise-1.7.2.tar.gz"
-  sha256 "09e159b29008e6c8e93d7ffc3c15d419c0bbae41620405f8f2d3432b72a2e9bf"
+  url "https://files.pythonhosted.org/packages/0a/08/dac0221615b78c97dfc031d5043d44084e23898e05e1a471c48e31e67e09/apprise-1.7.4.tar.gz"
+  sha256 "ef5e830051140d4228a759c5bc2d6857bcc7f8664df3e44f30f64617ce0c7a73"
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sonoma:   "4f0ba53742149a07a9c98f343cfb9d995b7d348567238596a60c82643f83a0ba"
-    sha256 cellar: :any,                 arm64_ventura:  "fa0c2c35800b20414dafea1c1528c3cee0d0595dfa4904ee3f45d50f0a02c269"
-    sha256 cellar: :any,                 arm64_monterey: "76d68c869c9852e30115b74f52f4533c18356d6b056660f9f03e3e5f6a5a1b9a"
-    sha256 cellar: :any,                 sonoma:         "c7ead3a68fe9cf69a9850ecbbdbd46ada7d124b07d255d13f7b845662e4c7ad8"
-    sha256 cellar: :any,                 ventura:        "7603c5106ff2986640a8dd3d9e7997e6abebe563725f1ae88c29138e10bbfb8a"
-    sha256 cellar: :any,                 monterey:       "096c1106d36c03b3fd8750ac8e91c9b0bfcbbf7a15ca92edb3672689b8c8f2aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4829433ff6cf8f774ee071a0cf1c13c6cf3dcf2a79c748a3631480c5f6eaa76"
+    sha256 cellar: :any,                 arm64_sonoma:   "839b9cc6733c24b01bfa75a3aa4886e07fbc81b333a6b830d06862707f627a15"
+    sha256 cellar: :any,                 arm64_ventura:  "33dc204ab45de10847399b13217267a9b0710b454d7de66f4c91f81a24a0dbba"
+    sha256 cellar: :any,                 arm64_monterey: "8f7bb5ced4558a51131babdf4ab6b1bbcc8041b56341a3fee09b4e04ae8b0a29"
+    sha256 cellar: :any,                 sonoma:         "7c8261e5b08fd6cab6d2079ad761bcca02a27fdd8a1a09b087f994235e56a6d4"
+    sha256 cellar: :any,                 ventura:        "cd40370d1344f2637c455c5df0b45451c8ba0a859b633aa43978765a7ecac375"
+    sha256 cellar: :any,                 monterey:       "4046ee0be0b6e9c821eb1e3fd8bb43d79b1ae575f00b14cc352650ada276fca8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "15633e616f692d04ae0c75454650fa308d6bc8034e545f3e8dda6eb9977bfea0"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do

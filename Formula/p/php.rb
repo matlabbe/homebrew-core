@@ -2,9 +2,9 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.3.3.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.3.3.tar.xz"
-  sha256 "b0a996276fe21fe9ca8f993314c8bc02750f464c7b0343f056fb0894a8dfa9d1"
+  url "https://www.php.net/distributions/php-8.3.4.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.3.4.tar.xz"
+  sha256 "39a337036a546e5c28aea76cf424ac172db5156bd8a8fd85252e389409a5ba63"
   license "PHP-3.01"
 
   livecheck do
@@ -13,13 +13,13 @@ class Php < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "094768582d23fa2fb3ceb6a5d02e6c13c48dcce43ea8357c20bbe6cc3e730eeb"
-    sha256 arm64_ventura:  "c52db0c220bab743335117aa1a01a22381209f385feb07cd1e05f95162a44110"
-    sha256 arm64_monterey: "4734d4fbec3ec9f2b0689c162006710f9319f2bb254d91144fc19baba0feef66"
-    sha256 sonoma:         "fe6cfc782bad378c881664b80e28d76cf556a5d9973452873785fe34e8d33927"
-    sha256 ventura:        "61ab7b7ed0ff8836df369c3ae4c5e61b0c388dcccd507a3fcf47e25b79248d8c"
-    sha256 monterey:       "a0bf86bbf16bf60b4fb4cab4a37a25fc3e53d7a417820dab3fb5b6db36a44b44"
-    sha256 x86_64_linux:   "2274c570fe3f6d6e50beea1854e5a30e8ee3c063d5695830b3aecdf8a8051b22"
+    sha256 arm64_sonoma:   "525e92e0a47205a680e8cd44d670b49677d6ac3d62642cda1750fa7daf26e186"
+    sha256 arm64_ventura:  "e8d3905de3b9438bc53c1c70dfa125eec7cd3ba1c6c5256c57baf77d439dc55c"
+    sha256 arm64_monterey: "a2c6738ceb3d61b99f9ecc60cf644f490acfbe6e2dc1a39d8511f14ba0539b3f"
+    sha256 sonoma:         "cd1318f394e15d7703d14b31414aa806502447c6b80c28ae3d290105c6a93946"
+    sha256 ventura:        "9e0af62ad21ae113ba719db6893bd7e60c810897f8cabcdb7f178cd26d788396"
+    sha256 monterey:       "0c46e5cf032fe803088413c156739cecd9142ed076ecdc20c60faa3d41b6d16c"
+    sha256 x86_64_linux:   "e0eca91b03b45c7a1d8d7d41d0966e7d138ea564d58bba3e1910ce937349ae2a"
   end
 
   head do
@@ -63,8 +63,6 @@ class Php < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "imap-uw"
-
     # PHP build system incorrectly links system libraries
     # see https://github.com/php/php-src/issues/10680
     patch :DATA
@@ -190,8 +188,6 @@ class Php < Formula
 
     if OS.mac?
       args << "--enable-dtrace"
-      args << "--with-imap=#{Formula["imap-uw"].opt_prefix}"
-      args << "--with-imap-ssl=#{Formula["openssl@3"].opt_prefix}"
       args << "--with-ldap-sasl"
       args << "--with-os-sdkpath=#{MacOS.sdk_path_if_needed}"
     else

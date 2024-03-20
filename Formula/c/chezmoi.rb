@@ -2,8 +2,8 @@ class Chezmoi < Formula
   desc "Manage your dotfiles across multiple diverse machines, securely"
   homepage "https://chezmoi.io/"
   url "https://github.com/twpayne/chezmoi.git",
-      tag:      "v2.46.1",
-      revision: "c65f66a5f1a990ffeb4d7e3f53320cb061f91513"
+      tag:      "v2.47.2",
+      revision: "f4904293d9e3d5297f481b0b1ec00981716fff39"
   license "MIT"
   head "https://github.com/twpayne/chezmoi.git", branch: "master"
 
@@ -16,13 +16,13 @@ class Chezmoi < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9f45ebfca6c8c63504ae82f6e2270092db5ce00bf931b542ebe8435873d53567"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b7fa7a183335e427e134cb4a3bab742b565fde674c0e54611c40493e284e707"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cead14c9da6302def23df6c20bd994a590b546b94409a109da910eaaaeb0bf5a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "98614e6e36d412901c3d1ac0fe33aeac5172680ae1d0188b77d1903217e38571"
-    sha256 cellar: :any_skip_relocation, ventura:        "452dd87815053bbafafaf9af09f893a65e1228a419e0b7b8f04cc1836201c66e"
-    sha256 cellar: :any_skip_relocation, monterey:       "63a91d5127ea245c5c01a9648482f43f03442dad5f5d4a47e1f80633385f2881"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4e5bb13cc908586056fe86b329e7f04c59bced9a0636c983f472a23ba7481e8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aeac91812cd9f7b37401642c8138620d5fcd8d52eed17d666cb6922946a24147"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d317751bd6062c0e0353635b782baca87b7cc8d8478b954b8c20ec2b39e4971b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f8ef9c4d5dcd0f1ae0b2ffa9aa37b67b8ebea285b833f427a568bf18b60ec0b4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "72e331a25c690f6bf440adaab644237d1150a311a5166b847e83bf37695a33e1"
+    sha256 cellar: :any_skip_relocation, ventura:        "5a22109229b57ed2920e047e8c7c36870bfe3c462c4e2efc255976bf53e5bd4f"
+    sha256 cellar: :any_skip_relocation, monterey:       "e4a420f8935cf8bc5412d4cc06f240f2e4e556ca95c4b5b8579b76a5986949a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6685c35b2755eb4475421410d3dc56be5b9ade94a7bdd6e297371dac630e286"
   end
 
   depends_on "go" => :build
@@ -35,7 +35,7 @@ class Chezmoi < Formula
       -X main.date=#{time.iso8601}
       -X main.builtBy=#{tap.user}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     bash_completion.install "completions/chezmoi-completion.bash"
     fish_completion.install "completions/chezmoi.fish"

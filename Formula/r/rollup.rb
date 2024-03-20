@@ -3,18 +3,18 @@ require "language/node"
 class Rollup < Formula
   desc "Next-generation ES module bundler"
   homepage "https://rollupjs.org/"
-  url "https://registry.npmjs.org/rollup/-/rollup-4.12.0.tgz"
-  sha256 "98177634601ccdd5b2cd160886ffc29c5e792c3a83871cb0542fd1b74ce726e0"
+  url "https://registry.npmjs.org/rollup/-/rollup-4.13.0.tgz"
+  sha256 "36725834e9e38f0b2974adca080c005aa95ade9da163e00ef6c1a0ec38b5309e"
   license all_of: ["ISC", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4fee2980c778d5a44acba110257bd5568004c79d1e9b3f8ddbdff3de43238a08"
-    sha256 cellar: :any,                 arm64_ventura:  "4fee2980c778d5a44acba110257bd5568004c79d1e9b3f8ddbdff3de43238a08"
-    sha256 cellar: :any,                 arm64_monterey: "4fee2980c778d5a44acba110257bd5568004c79d1e9b3f8ddbdff3de43238a08"
-    sha256 cellar: :any,                 sonoma:         "46ff9960d097f482fe7998f1864f5ccf60c45346873e58aee62d1460164f0ed0"
-    sha256 cellar: :any,                 ventura:        "46ff9960d097f482fe7998f1864f5ccf60c45346873e58aee62d1460164f0ed0"
-    sha256 cellar: :any,                 monterey:       "46ff9960d097f482fe7998f1864f5ccf60c45346873e58aee62d1460164f0ed0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "102c4d79ae6e57ac8c9d752baf48751fe083fe19cf73c35d154e8c82d902531b"
+    sha256 cellar: :any,                 arm64_sonoma:   "80fde2f79bee36f34ed09dc56a61a30703cc984818b5972a65a279d96426c049"
+    sha256 cellar: :any,                 arm64_ventura:  "80fde2f79bee36f34ed09dc56a61a30703cc984818b5972a65a279d96426c049"
+    sha256 cellar: :any,                 arm64_monterey: "80fde2f79bee36f34ed09dc56a61a30703cc984818b5972a65a279d96426c049"
+    sha256 cellar: :any,                 sonoma:         "21f7e8e896cf44ab94cbc515d0e20f5cc20c3d52014b4d08a6ce6d302128ed1b"
+    sha256 cellar: :any,                 ventura:        "21f7e8e896cf44ab94cbc515d0e20f5cc20c3d52014b4d08a6ce6d302128ed1b"
+    sha256 cellar: :any,                 monterey:       "21f7e8e896cf44ab94cbc515d0e20f5cc20c3d52014b4d08a6ce6d302128ed1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64e3cf23dccd2cdf59d3a98bc09f4d0c7edcac937abf9ea5b17bcb45d0c1f727"
   end
 
   depends_on "node"
@@ -22,10 +22,6 @@ class Rollup < Formula
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
-
-    # Delete native binaries installed by npm, as we dont support `musl` for a `libc` implementation
-    node_modules = libexec/"lib/node_modules/rollup/node_modules"
-    (node_modules/"@rollup/rollup-linux-x64-musl/rollup.linux-x64-musl.node").unlink if OS.linux?
 
     deuniversalize_machos
   end

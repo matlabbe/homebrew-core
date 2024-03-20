@@ -3,19 +3,19 @@ class Kin < Formula
 
   desc "Sane PBXProj files"
   homepage "https://github.com/Serchinastico/Kin"
-  url "https://files.pythonhosted.org/packages/82/45/04e43dc1764897bf6c9a30386db64d3732cfdbda5ceb75ce9cbcb12c90d1/kin-2.1.7.tar.gz"
-  sha256 "d71146b99e18ece9546c0677a8fa8b21c7c777e86ef007c2fea77074254d2ba6"
+  url "https://files.pythonhosted.org/packages/ab/a6/fe193e6193675c978b493ebe8e6a606b52203e37463179ca573ebcaa18dd/kin-2.1.9.tar.gz"
+  sha256 "35da507e45b733a6f391676b47995b26ca40afcb38fcb5c3f5e0d90101027dee"
   license "Apache-2.0"
   head "https://github.com/Serchinastico/Kin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6807d8dd5eb1f09a09a71a785fcaa8f45f35b9d0947f2940a1beb10a48f93a36"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "06ab8e57893078fb0792bffc354312e94c353e37ac8ca6532135e9ad7d975aba"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "818558a3eda35af74a418207556a8ff0b7fb24249c0f0e9b79d89319a4b23aec"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c1084bb9a1381fa05866c7cfd81271c18bc8a7ff0c877f133fef3f31bcb245ec"
-    sha256 cellar: :any_skip_relocation, ventura:        "155712f579dd6161db9bedf3deffd586502a9276a0940df07ad40fdac3f597a2"
-    sha256 cellar: :any_skip_relocation, monterey:       "e505a49dbaefe2d93f5ba153f6156a2d07cd62c47ac83c32acf19cd933b00d09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0328c3668c00292fb9736cfc30cbb74259201456f9230fa2f2ae9572901bcfd3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "72ceb288c7ec1f5669544fe6ab9aeba9bef50a7b9153de7d6494c74aff6f49c0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8c4e3aa72276f7639f716e38f87edca546be48f8c76da97b50a5c8f805f60196"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9eb6bc7b4d86f5e2c689a797f1e307a7e87567524b4075163c96fc17f422c8a6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f7ae3e2e893df9fb31087548f90fbd0fe792aa2b38cc9b9c230841a82a5f3b8d"
+    sha256 cellar: :any_skip_relocation, ventura:        "4e661f1ce7e41a958b76a6743521e4e44f7b69d7d2df17af524cd8d3ad68dc8e"
+    sha256 cellar: :any_skip_relocation, monterey:       "46bf71970fe31abe368abe43652e8639c9dd04ea69fafa4ca3121eaded9b3909"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7b046a13badece5223b6b62513db9ac7a0da3c41e3ba47c4cce4e52b2c0ba33"
   end
 
   depends_on "python@3.12"

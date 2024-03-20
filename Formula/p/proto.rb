@@ -1,8 +1,8 @@
 class Proto < Formula
   desc "Pluggable multi-language version manager"
   homepage "https://moonrepo.dev/proto"
-  url "https://github.com/moonrepo/proto/archive/refs/tags/v0.30.0.tar.gz"
-  sha256 "a564e4c8a4d2483b19e02bd1b3cdac5db4ad61cc0e2d217203f0a641897ba7f4"
+  url "https://github.com/moonrepo/proto/archive/refs/tags/v0.31.5.tar.gz"
+  sha256 "f91035029b144538602e8577c25a043a8778ea0924fd9e2011c0e4697cee047a"
   license "MIT"
   head "https://github.com/moonrepo/proto.git", branch: "master"
 
@@ -12,14 +12,13 @@ class Proto < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ff9de367ee78ce1ddb03e7c0ae6d9db3731f6dc02df3f573f9273bbf7e56fda"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "89f68a66e5fe549d9c9d2c3f12880a58e22760ff0e2fb2cbc05fb456adc1fcce"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f74d7ca82eb84749599fbeca604ce23e99a575129dd71ad13e074c745cc714c9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f87967d15e4e1e5ca83e05469a5889fc1b24633239b41ce915a572eb70aed3c0"
-    sha256 cellar: :any_skip_relocation, ventura:        "217b7f50c7d7b34490c0cb6a39e37e980598ff6abd97a1e36a5950adae95c770"
-    sha256 cellar: :any_skip_relocation, monterey:       "09139c5aed760d0aa0b2bf0a7f753501bf189ef4f6a7596f2317157269bc84be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efc53763103d5d98759323c4721685d6b311d9c1b446207c5c64bad99895982b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "90dff6d39ad8c4687aa204212b65876f513156cdf467ae70da8683e7ffca9f41"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "961ae8cd6392401e76600bec5d8d129d95e8a5e65008a37d72e7630209eccf1a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "46e3bc4e5267908f70ccfbbd36c82298410bd1d1cacb001044a325750d5110c8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "43a66c57dec8a4cc8c4303214d8343ca923c67fa763149c048b9198977716c95"
+    sha256 cellar: :any_skip_relocation, ventura:        "016fa00226e2579328503abce29cae92ac1e76e39b2a0dadd25f6990c239e5df"
+    sha256 cellar: :any_skip_relocation, monterey:       "b06d541f9f7b9f284bcda6ce0a80695cd7db41a429ddaf1487c5785de7f2bbe0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca28bde14da736f536bc8c64ebae772fce3d7406e67638440745d7a3ba1ff35b"
   end
 
   depends_on "pkg-config" => :build

@@ -1,10 +1,9 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/libvips/libvips"
-  url "https://github.com/libvips/libvips/releases/download/v8.15.1/vips-8.15.1.tar.xz"
-  sha256 "06811f5aed3e7bc03e63d05537ff4b501de5283108c8ee79396c60601a00830c"
+  url "https://github.com/libvips/libvips/releases/download/v8.15.2/vips-8.15.2.tar.xz"
+  sha256 "a2ab15946776ca7721d11cae3215f20f1f097b370ff580cd44fc0f19387aee84"
   license "LGPL-2.1-or-later"
-  revision 2
 
   livecheck do
     url :stable
@@ -12,13 +11,13 @@ class Vips < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "a0749997ff5816cb91fde6245faefeeb779406a6e01eed5066dab7d0c04f78a8"
-    sha256 arm64_ventura:  "14c821b0e22ed0ac696439ff56c107c559d19d9ae68ed18cbd63097ed5810e91"
-    sha256 arm64_monterey: "e00796685e92788ed10bfc19ffdf60e6175be80c19e61229d97f3953fd55c2ee"
-    sha256 sonoma:         "54758e656cb4d1ebd0e93315db4c180d2b66a937ceb979636b640f7f830f9ffa"
-    sha256 ventura:        "4e0e2d7844dc730536652d3bad4e040aeab7a62e03c961191e30774da02222d7"
-    sha256 monterey:       "e79c6b7c557a4b6e477680cd56055389fd233d1cd59a553314bbadaed5a56323"
-    sha256 x86_64_linux:   "08fbcf6c9e2ed7348d1034080f4aac8b018a0f257e646aa6af7ce15e691929b0"
+    sha256 arm64_sonoma:   "b2ebb56e24d468a5ec0df113e46d59955f6e57dd1fc92e1b2a6e27f8141fd86b"
+    sha256 arm64_ventura:  "78e7fd5e7b010bf16b393c3c90b8b6831e8c83968b79eb225d8b63dd899d49e2"
+    sha256 arm64_monterey: "e4c85f4abecc1ea57de48987c00778dacf6b148f3d89b94dd69e2685e04b4313"
+    sha256 sonoma:         "f7331f678f4fa0c1f7eb264dbe7be9204edb09d49aa81cd4e79cbea9899c5ed6"
+    sha256 ventura:        "42b359d7406f0d163ae7b707c9efafac7f43e25acb17377f26c8a183c60bab01"
+    sha256 monterey:       "3aa48eb7a0191c2b06ffda9c47e5d0ce659c97da35f2cf30c445920b0e2389d0"
+    sha256 x86_64_linux:   "d2a4f010269a9ab764c5ad367e18cd257ec6d61b58e29f1fca9df34e35988187"
   end
 
   depends_on "gobject-introspection" => :build
@@ -59,6 +58,9 @@ class Vips < Formula
   fails_with gcc: "5"
 
   def install
+    # workaround for Xcode 15.3, upstream bug report: https://github.com/libvips/libvips/issues/3901
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     # mozjpeg needs to appear before libjpeg, otherwise it's not used
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["mozjpeg"].opt_lib/"pkgconfig"
 

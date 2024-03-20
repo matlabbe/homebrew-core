@@ -1,19 +1,19 @@
 class Cmctl < Formula
   desc "Command-line tool to manage cert-manager"
   homepage "https://cert-manager.io"
-  url "https://github.com/cert-manager/cert-manager/archive/refs/tags/v1.14.2.tar.gz"
-  sha256 "d04eb7add1a2dde3a708c8ab2d897400b8b6adf9898d3b301069561c46046101"
+  url "https://github.com/cert-manager/cert-manager/archive/refs/tags/v1.14.4.tar.gz"
+  sha256 "f9b68c18840d7590e3c0691d9827b63ede30cbdcd21604312034f32d23bf1a3e"
   license "Apache-2.0"
   head "https://github.com/cert-manager/cert-manager.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "607f0ec4a9cf6f2e9699083fdc247d45e85a48c93d2ae6dc2207d4734699f6c8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "adacf66c06b480bc93bd4b176e46feb1042e6345daeb383a15e63231325efd9a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a9eb2c13eb23f0134326c53d2dca952bf285d84fa51ffa97548d793b21a56631"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3e267df7e1e1dad3204140f5b24f57adb036ca26bf9cfaa7a570fce920d6c65b"
-    sha256 cellar: :any_skip_relocation, ventura:        "71cd09e4e48758543056f5d8b1b6e8d48e79d96b5206f37486034108d68da9fd"
-    sha256 cellar: :any_skip_relocation, monterey:       "242457b9852f728f61fb3c7453e4fe29e0afd1a032be30d207c2c7e44ba59715"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd3c803f5689e157431793c156d44d2741960bb2cadcfa30ca4b07a363aae8ad"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "daab6a2b88667b7c544428150984ee0a3276119273c5440179ac42b781fdfd10"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3819b47878f4fc6b6e208bfafd52e5a0aecf5bb185475fa278f033d337db6233"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a43c05831eb82df155153d48661fa2e2ed7450aaa9b1822b1f6201b9222abbbe"
+    sha256 cellar: :any_skip_relocation, sonoma:         "860539e81216dfb84cdbc016430653ff74f90428c90fe4628bdd95081b844801"
+    sha256 cellar: :any_skip_relocation, ventura:        "46d78ae95edd8df00098a6d1e175cf6bb71cacc45c1f88220bfc9f2474340681"
+    sha256 cellar: :any_skip_relocation, monterey:       "9149d06dda93e395192ada9cff2e1ff2217cb2e11ea26557e7b15b0e0324ace5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9bdc627df512603bfea295e5e144cbf39db2b0e68ac08ff73ea6064b2c039d58"
   end
 
   depends_on "go" => :build
@@ -28,7 +28,7 @@ class Cmctl < Formula
     ]
 
     cd "cmd/ctl" do
-      system "go", "build", *std_go_args(ldflags: ldflags)
+      system "go", "build", *std_go_args(ldflags:)
     end
 
     generate_completions_from_executable(bin/"cmctl", "completion")
